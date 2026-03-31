@@ -1,0 +1,343 @@
+/* ================================
+   TELA DE MEIOSE
+   ================================ */
+
+.meiose {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+.meiose-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.meiose-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.meiose-header h2 {
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+}
+
+.meiose-header p {
+    color: var(--gray-600);
+    font-size: 1.1rem;
+}
+
+/* Divisão em Meiose I e II */
+.meiose-divisions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.division-container {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    animation: fadeIn 0.6s ease-out;
+}
+
+.division-container:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.division-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--secondary);
+}
+
+.division-title h3 {
+    color: var(--secondary);
+    margin: 0;
+}
+
+.division-title p {
+    font-size: 0.9rem;
+    color: var(--gray-500);
+    margin: 0.5rem 0 0 0;
+}
+
+/* Canvas das divisões */
+.division-canvas-wrapper {
+    display: flex;
+    justify-content: center;
+    min-height: 400px;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+    border-radius: 8px;
+    border: 2px solid var(--gray-200);
+}
+
+.division-canvas-wrapper canvas {
+    max-width: 100%;
+    display: block;
+}
+
+/* Tabs para subfases */
+.subfase-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.subfase-tab {
+    padding: 0.75rem 1.25rem;
+    border: 2px solid var(--gray-300);
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--gray-600);
+}
+
+.subfase-tab:hover {
+    border-color: var(--secondary);
+    color: var(--secondary);
+}
+
+.subfase-tab.active {
+    background: var(--secondary);
+    color: white;
+    border-color: var(--secondary);
+}
+
+/* Info sobre crossing-over */
+.crossing-over-info {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+    border-left: 4px solid var(--secondary);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.crossing-over-info h4 {
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.crossing-over-info p {
+    margin: 0;
+    color: var(--gray-600);
+    font-size: 0.95rem;
+}
+
+/* Division controls */
+.division-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.division-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+.division-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.division-btn-play {
+    background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+    color: white;
+}
+
+.division-btn-pause {
+    background: linear-gradient(135deg, var(--warning) 0%, #d97706 100%);
+    color: white;
+}
+
+.division-btn-reset {
+    background: linear-gradient(135deg, var(--info) 0%, #1d4ed8 100%);
+    color: white;
+}
+
+/* Resultado final */
+.meiose-result {
+    background: linear-gradient(135deg, var(--secondary) 0%, #7c3aed 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 2rem;
+    animation: slideInLeft 0.6s ease-out 0.4s both;
+}
+
+.meiose-result h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.meiose-result p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.result-cells {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.result-cell {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    animation: float 2s ease-in-out infinite;
+}
+
+.result-cell:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.result-cell:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.result-cell:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+/* Educational cards */
+.meiose-education {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.education-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid var(--secondary);
+    transition: var(--transition);
+}
+
+.education-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+}
+
+.education-card h4 {
+    color: var(--secondary);
+    margin-bottom: 0.75rem;
+}
+
+.education-card p {
+    color: var(--gray-600);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .meiose-divisions {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .meiose-container {
+        padding: 1rem;
+    }
+
+    .division-container {
+        padding: 1rem;
+    }
+
+    .division-canvas-wrapper {
+        min-height: 300px;
+        padding: 0.75rem;
+    }
+
+    .subfase-tabs {
+        gap: 0.25rem;
+    }
+
+    .subfase-tab {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .division-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .result-cells {
+        gap: 0.75rem;
+    }
+
+    .result-cell {
+        width: 60px;
+        height: 60px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .division-canvas-wrapper {
+        min-height: 250px;
+    }
+
+    .subfase-tab {
+        padding: 0.5rem 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .crossing-over-info {
+        padding: 0.75rem;
+    }
+
+    .meiose-result {
+        padding: 1.5rem;
+    }
+
+    .result-cells {
+        gap: 0.5rem;
+    }
+
+    .result-cell {
+        width: 50px;
+        height: 50px;
+        font-size: 0.9rem;
+    }
+}
