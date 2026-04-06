@@ -37,9 +37,9 @@ function renderMitose() {
 
                 <!-- Imagem real da fase -->
                 <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; margin-bottom: 2rem;">
-                    <h3 id="phaseName" style="margin-top: 0; color: #667eea; margin-bottom: 1rem;">${mitoseState.phases[0].name}</h3>
+                    <h3 id="phaseName" margin-bottom: 1rem;">${mitoseState.phases[0].name}</h3>
                     <img id="mitosePhaseImage" src="images/profase.png" 
-                         style="max-width: 100%; max-height: 500px; height: auto; border-radius: 12px; border: 3px solid #667eea; box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2); display: block; margin: 0 auto;">
+                         style="max-width: 100%; max-height: 500px; height: auto; border-radius: 12px; border: 3px solid #ffffff; box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2); display: block; margin: 0 auto;">
                     <p id="phaseDescription" style="margin-top: 1rem; margin-bottom: 0; font-size: 1rem; color: #666; line-height: 1.6;">${mitoseState.phases[0].description}</p>
                 </div>
 
@@ -60,18 +60,10 @@ function renderMitose() {
                     <button class="btn-control btn-next" onclick="nextMitosePhase()">
                         Próximo <i class="fas fa-chevron-right"></i>
                     </button>
-                    <button class="btn-control btn-reset" onclick="resetMitose()">
-                        <i class="fas fa-redo"></i> Reiniciar
-                    </button>
+                
                 </div>
 
                 <!-- Controle de velocidade -->
-                <div class="speed-control">
-                    <label for="mitoseSpeed">Velocidade da Animação:</label>
-                    <input type="range" id="mitoseSpeed" min="0.5" max="2" step="0.5" value="1" onchange="setMitoseSpeed(this.value)">
-                    <span id="speedValue">1x</span>
-                </div>
-
                 <!-- Cards informativos -->
                 <div class="mitose-info-cards">
                     <div class="info-card">

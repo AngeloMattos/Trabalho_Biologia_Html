@@ -16,7 +16,7 @@ function renderHome() {
             <div class="home-content">
                 <div class="home-header">
                     <div class="home-logo"></div>
-                    <h1 class="home-title">CellLab Interativo</h1>
+                    <h1 class="home-title">CellLab</h1>
                     <p class="home-subtitle">Aprenda Mitose e Meiose de forma Dinâmica e Interativa</p>
                 </div>
 
