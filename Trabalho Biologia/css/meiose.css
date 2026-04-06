@@ -1,0 +1,409 @@
+/* ================================
+   TELA DE MEIOSE - IDENTIDADE VERDE
+   ================================ */
+
+.meiose {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    min-height: 100vh;
+}
+
+.meiose-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.meiose-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.meiose-header h2 {
+    color: #059669;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    text-shadow: 0 2px 4px rgba(5, 150, 105, 0.1);
+}
+
+.meiose-header p {
+    color: #047857;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Decoração com linha verde */
+.meiose-header::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #059669, #10b981);
+    border-radius: 2px;
+    margin: 1rem auto 0;
+}
+
+/* Divisão container */
+.meiose-divisions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.division-container {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.15);
+    border-top: 5px solid #059669;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.division-container:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.division-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #10b981;
+}
+
+.division-title h3 {
+    color: #059669;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.division-title p {
+    font-size: 0.9rem;
+    color: #047857;
+    margin: 0.5rem 0 0 0;
+    font-weight: 500;
+}
+
+/* Crossing-over info */
+.crossing-over-info {
+    background: linear-gradient(135deg, rgba(5, 150, 105, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+    border-left: 4px solid #059669;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.crossing-over-info h4 {
+    color: #059669;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.crossing-over-info p {
+    margin: 0;
+    color: #047857;
+    font-size: 0.95rem;
+}
+
+/* Subfase tabs */
+.subfase-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.subfase-tab {
+    padding: 0.75rem 1.25rem;
+    border: 2px solid #d1fae5;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #047857;
+}
+
+.subfase-tab:hover {
+    border-color: #10b981;
+    color: #059669;
+    background: #f0fdf4;
+}
+
+.subfase-tab.active {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    color: white;
+    border-color: #059669;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
+}
+
+/* Container de imagem */
+.meiose-image-container {
+    background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border: 2px solid #d1fae5;
+}
+
+.meiose-image-container h4 {
+    color: #059669;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.meiose-image-container img {
+    max-width: 100%;
+    max-height: 400px;
+    height: auto;
+    border-radius: 8px;
+    border: 3px solid #059669;
+    box-shadow: 0 5px 15px rgba(5, 150, 105, 0.15);
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.meiose-image-container img:hover {
+    transform: scale(1.02);
+}
+
+.meiose-image-container p {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    color: #047857;
+    line-height: 1.5;
+}
+
+/* Division controls */
+.division-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.division-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+.division-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.division-btn-play {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.division-btn-play:hover {
+    background: linear-gradient(135deg, #047857 0%, #059669 100%);
+}
+
+.division-btn-reset {
+    background: linear-gradient(135deg, #a7f3d0 0%, #6ee7b7 100%);
+    color: #047857;
+    font-weight: 700;
+}
+
+.division-btn-reset:hover {
+    background: linear-gradient(135deg, #6ee7b7 0%, #34d399 100%);
+    color: white;
+}
+
+/* Resultado final */
+.meiose-result {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 2rem;
+    animation: slideInUp 0.6s ease-out;
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.2);
+}
+
+.meiose-result h3 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+}
+
+.meiose-result p {
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0 0 1.5rem 0;
+    font-size: 1.1rem;
+}
+
+.result-cells {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.result-cell {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.result-cell:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.result-cell:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.result-cell:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+/* Educational cards */
+.meiose-education {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.education-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.1);
+    border-top: 4px solid #10b981;
+    transition: var(--transition);
+}
+
+.education-card:hover {
+    box-shadow: 0 12px 30px rgba(5, 150, 105, 0.2);
+    transform: translateY(-6px);
+}
+
+.education-card h4 {
+    color: #059669;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.education-card p {
+    color: var(--gray-600);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .meiose-divisions {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .meiose-container {
+        padding: 1rem;
+    }
+
+    .meiose-header h2 {
+        font-size: 2rem;
+    }
+
+    .division-container {
+        padding: 1rem;
+    }
+
+    .meiose-image-container {
+        padding: 1rem;
+    }
+
+    .meiose-image-container img {
+        max-height: 300px;
+    }
+
+    .subfase-tab {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .division-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .result-cell {
+        width: 60px;
+        height: 60px;
+        font-size: 1rem;
+    }
+
+    .meiose-education {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .meiose-header h2 {
+        font-size: 1.75rem;
+    }
+
+    .meiose-header::after {
+        width: 60px;
+    }
+
+    .division-container {
+        padding: 1rem;
+    }
+
+    .meiose-image-container {
+        padding: 0.75rem;
+    }
+
+    .meiose-image-container img {
+        max-height: 250px;
+    }
+
+    .subfase-tab {
+        padding: 0.5rem 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .division-btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .result-cell {
+        width: 50px;
+        height: 50px;
+        font-size: 0.9rem;
+    }
+
+    .education-card {
+        padding: 1rem;
+    }
+}

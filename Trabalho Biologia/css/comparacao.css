@@ -1,0 +1,558 @@
+/* ================================
+   TELA DE COMPARAÇÃO
+   ================================ */
+
+.comparacao {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding-bottom: 3rem;
+}
+
+.comparacao-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.comparacao-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.comparacao-header h2 {
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.comparacao-header p {
+    color: var(--gray-600);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Controles de modo */
+.comparacao-mode-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.mode-btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--gray-300);
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+.mode-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.mode-btn.active {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* Container principal de comparação */
+.comparacao-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Cards de divisão */
+.division-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    animation: fadeIn 0.6s ease-out;
+}
+
+.division-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.division-card-header {
+    padding: 1.25rem;
+    border-bottom: 4px solid;
+    text-align: center;
+}
+
+.division-card-header.mitose {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(79, 70, 229, 0.1) 100%);
+    border-color: var(--primary);
+}
+
+.division-card-header.meiose {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+    border-color: var(--secondary);
+}
+
+.division-card-header h3 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1.4rem;
+}
+
+.division-card-header p {
+    margin: 0.25rem 0 0 0;
+    font-size: 0.85rem;
+    color: var(--gray-600);
+}
+
+.division-card-content {
+    padding: 1.5rem;
+}
+
+/* Canvas wrappers */
+.comparison-canvas-wrapper {
+    display: flex;
+    justify-content: center;
+    min-height: 350px;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(245, 247, 250, 0.5) 0%, rgba(195, 207, 226, 0.3) 100%);
+    border-radius: 8px;
+    border: 2px solid var(--gray-200);
+}
+
+.comparison-canvas-wrapper canvas {
+    max-width: 100%;
+    display: block;
+}
+
+/* Controles de fase */
+.phase-controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.phase-control-btn {
+    padding: 0.5rem 0.75rem;
+    border: 2px solid var(--gray-300);
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.75rem;
+    transition: var(--transition);
+    color: var(--gray-600);
+}
+
+.phase-control-btn:hover {
+    border-color: currentColor;
+    transform: translateY(-2px);
+}
+
+.phase-control-btn.active {
+    color: white;
+    border-color: currentColor;
+}
+
+.division-card.mitose .phase-control-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.division-card.meiose .phase-control-btn.active {
+    background: var(--secondary);
+    border-color: var(--secondary);
+}
+
+/* Info da fase */
+.phase-info-box {
+    background: var(--gray-50);
+    padding: 0.9rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+    margin-bottom: 1rem;
+}
+
+.division-card.mitose .phase-info-box {
+    border-color: var(--primary);
+}
+
+.division-card.meiose .phase-info-box {
+    border-color: var(--secondary);
+}
+
+.phase-info-box h4 {
+    margin: 0 0 0.35rem 0;
+    font-size: 0.95rem;
+}
+
+.phase-info-box p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--gray-600);
+}
+
+/* Características */
+.characteristics-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--gray-200);
+}
+
+.characteristics-section h4 {
+    margin: 0 0 0.75rem 0;
+    font-size: 0.9rem;
+}
+
+.characteristic-item {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.55rem;
+    font-size: 0.85rem;
+}
+
+.characteristic-icon {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    color: white;
+}
+
+.division-card.mitose .characteristic-icon {
+    background: var(--primary);
+}
+
+.division-card.meiose .characteristic-icon {
+    background: var(--secondary);
+}
+
+/* Tabela comparativa */
+.comparison-table-section {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 2rem;
+    animation: slideInLeft 0.6s ease-out 0.3s both;
+    overflow-x: auto;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.comparison-table thead {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+}
+
+.comparison-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.comparison-table tbody tr {
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.comparison-table tbody tr:hover {
+    background: var(--gray-50);
+}
+
+.comparison-table td {
+    padding: 1rem;
+    color: var(--gray-700);
+}
+
+.comparison-table td:first-child {
+    font-weight: 600;
+    color: var(--gray-800);
+    background: var(--gray-50);
+}
+
+/* Resumo de características */
+.characteristics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+}
+
+.characteristic-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid;
+    transition: var(--transition);
+}
+
+.characteristic-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+}
+
+.characteristic-card.mitose {
+    border-color: var(--primary);
+}
+
+.characteristic-card.mitose .card-icon {
+    color: var(--primary);
+}
+
+.characteristic-card.meiose {
+    border-color: var(--secondary);
+}
+
+.characteristic-card.meiose .card-icon {
+    color: var(--secondary);
+}
+
+.card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.characteristic-card h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.05rem;
+}
+
+.characteristic-card p {
+    margin: 0;
+    color: var(--gray-600);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Diagrama comparativo */
+.comparison-diagram {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 2rem;
+    animation: slideInRight 0.6s ease-out 0.3s both;
+}
+
+.comparison-diagram h3 {
+    text-align: center;
+    margin: 0 0 2rem 0;
+    color: var(--dark);
+}
+
+.diagram-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.diagram-item {
+    text-align: center;
+}
+
+.diagram-item h4 {
+    color: var(--gray-800);
+    margin: 0 0 1rem 0;
+    font-size: 1.05rem;
+}
+
+.diagram-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.diagram-step {
+    padding: 0.65rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.diagram-item.mitose .diagram-step {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(79, 70, 229, 0.1) 100%);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.diagram-item.meiose .diagram-step {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+}
+
+.diagram-step:not(:last-child)::after {
+    content: '↓';
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.7rem;
+}
+
+/* Botões de ação */
+.comparison-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+}
+
+.action-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.action-btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+}
+
+.action-btn-secondary {
+    background: linear-gradient(135deg, var(--secondary) 0%, #7c3aed 100%);
+    color: white;
+}
+
+.action-btn-outline {
+    background: white;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.action-btn-outline:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .comparacao-main {
+        grid-template-columns: 1fr;
+    }
+
+    .diagram-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .comparacao-container {
+        padding: 1rem;
+    }
+
+    .comparacao-header h2 {
+        font-size: 1.75rem;
+    }
+
+    .division-card-content {
+        padding: 1rem;
+    }
+
+    .comparison-canvas-wrapper {
+        min-height: 250px;
+        padding: 0.75rem;
+    }
+
+    .phase-controls {
+        gap: 0.25rem;
+    }
+
+    .phase-control-btn {
+        padding: 0.4rem 0.5rem;
+        font-size: 0.7rem;
+    }
+
+    .comparison-table {
+        font-size: 0.85rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 0.75rem;
+    }
+
+    .characteristics-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .comparison-diagram {
+        padding: 1.5rem;
+    }
+
+    .diagram-content {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .comparacao-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .comparacao-mode-toggle {
+        gap: 0.5rem;
+    }
+
+    .mode-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .division-card-header h3 {
+        font-size: 1.15rem;
+    }
+
+    .comparison-canvas-wrapper {
+        min-height: 200px;
+    }
+
+    .comparison-table {
+        font-size: 0.75rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 0.5rem;
+    }
+
+    .characteristic-card {
+        padding: 1rem;
+    }
+
+    .action-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+        width: 100%;
+    }
+}
