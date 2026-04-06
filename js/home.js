@@ -40,23 +40,9 @@ function renderHome() {
                         <p>Veja mitose e meiose lado a lado</p>
                     </div>
 
-                    <div class="home-btn-card" onclick="navigateTo('quiz')">
-                        <i class="fas fa-question-circle"></i>
-                        <span>Quiz</span>
-                        <p>Teste seus conhecimentos</p>
-                    </div>
-                </div>
 
-                <!-- Info -->
-                <div class="home-info">
-                    <h3><i class="fas fa-lightbulb"></i> Como Funciona</h3>
-                    <p>Interaja com simulações dinâmicas de divisão celular. Use os controles para avançar entre as fases e observar o comportamento dos cromossomos.</p>
-                    <p><strong>Modo Comparação:</strong> Veja mitose e meiose acontecendo simultaneamente para entender suas diferenças.</p>
-                    <p><strong>Quiz:</strong> Teste seu aprendizado com perguntas desafiadoras e feedback imediato.</p>
-                </div>
 
                 <div class="home-footer">
-                    <p>🔬 CellLab Interativo - Educação em Biologia Celular v1.0</p>
                 </div>
             </div>
         </div>
@@ -104,7 +90,6 @@ function createParticles() {
  * Adiciona animações aos elementos da home
  */
 function addHomeAnimations() {
-    // Anima botões com delay
     const buttons = document.querySelectorAll('.home-btn-card');
     buttons.forEach((btn, index) => {
         btn.style.opacity = '0';
@@ -117,7 +102,6 @@ function addHomeAnimations() {
         }, 100 + index * 100);
     });
 
-    // Efeito hover nos botões
     buttons.forEach(btn => {
         btn.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-8px) scale(1.02)';
